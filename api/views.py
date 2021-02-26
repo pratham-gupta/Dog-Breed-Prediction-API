@@ -88,7 +88,7 @@ class ImageView(APIView):
 
        
             score, pred = run_inference(model,image_path,inference_transformer,code_to_breed)
-            print(score,pred)
+            os.remove(image_path)
             return Response({"Score":score, "Prediction":pred},status=status.HTTP_200_OK)
         return Response({"Bad Request":"Invalid Image"},status=status.HTTP_400_BAD_REQUEST)
 
@@ -115,8 +115,9 @@ class Base64ImageView(APIView):
 
             score, pred = run_inference(model,image_path,inference_transformer,code_to_breed)
             print(score,pred)
+            os.remove(image_path)
             return Response({"Score":score, "Prediction":pred},status=status.HTTP_200_OK)
-            
+
         return Response({"Bad Request":"Invalid Image"},status=status.HTTP_400_BAD_REQUEST)
 
 
