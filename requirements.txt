@@ -4,6 +4,7 @@ chardet==4.0.0
 Django @ file:///tmp/build/80754af9/django_1613762073373/work
 django-extra-fields==3.0.2
 djangorestframework==3.12.2
+gunicorn==20.0.4
 idna==2.10
 numpy==1.20.1
 opencv-python==4.5.1.48
