@@ -27,7 +27,7 @@ SECRET_KEY = SAVED_SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dog-breed-predictor.herokuapp.com']
+ALLOWED_HOSTS = ['dog-breed-predictor.herokuapp.com','*']
 
 
 # Application definition

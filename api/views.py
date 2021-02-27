@@ -15,6 +15,8 @@ from django.conf import settings
 import os
 import base64
 from datetime import datetime
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 BASE_DIR = settings.BASE_DIR
 MEDIA_ROOT = settings.MEDIA_ROOT
 
@@ -104,7 +106,7 @@ class Base64ImageView(APIView):
         if serializer.is_valid():
             image_string = serializer.data.get('base64string')
             image_string = bytes(image_string,'utf-8')
-            image = base64.decodestring(image_string)
+            image = base64.decodestring(image_string + b'===')
             name = datetime.now().strftime('%d_%m_%Y_%H_%M_%S') + '.jpg'
             image_path = os.path.join(MEDIA_ROOT,'images',name)
 
